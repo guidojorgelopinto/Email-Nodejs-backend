@@ -9,13 +9,13 @@ module.exports = {
     host: process.env.DB_HOST || "127.0.0.1:3306",
     dialect: process.env.DB_DIALECT || "mysql",
 
-    //Config seeds
-    seedsStorage: "sequelize",
-    seedsStorageTableName: "seeds",
+  // Configurar Seeds
+  seederStorage: "sequelize",
+  seederStorageTableName: "seeds",
 
-    //Config migrations
-    migrationsStorage: "sequelize",
-    migrationsStorageTableName: "migrations"
+  // Configuracion de Migrations
+  migrationStorage: "sequelize",
+  migrationStorageTableName: "migrations"
 
 
 }
