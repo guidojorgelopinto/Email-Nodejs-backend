@@ -5,45 +5,47 @@ const auth = require('../../config/auth');
 
 module.exports = {
 
-        //Login
-        signIn(req, res) {
+// Login
+signIn(req, res) {
 
-            let { email, password } = req.body;
+    let { email, password } = req.body;
 
-            //Buscar usuario
-            User.findOne({
-                where: { 
-                    email: email
-                }
-            }).then(user => {
+    // Buscar usuario
+    User.findOne({
+        where: {
+            email: email
+        }
+    }).then(user => {
 
-                if(!user) {
-                    res.status(404).json({ msg: "Usuario con este correo no encontrado"});
-                } else {
+        if (!user) {
+            res.status(404).json({ msg: "Usuario con este correo no encontrado" });
+        } else {
 
-                    if(bcrypt.compareSync(password, user.password)) {
+            if (bcrypt.compareSync(password, user.password)) {
 
-                        //creo token
-                        let token = jwt.sign({ user: user }, auth.secret, {
-                            expiresIn: auth.expires
-                        });
+                // Creamos el token
+                let token = jwt.sign({ user: user }, auth.secret, {
+                    expiresIn: auth.expires
+                });
 
-                        res.json({
-                            user: user,
-                            token: token
-                        })
+                res.json({
+                    user: user,
+                    token: token
+                })
 
-                    } else {
-                        //Unauthorized access
-                        res.status(401).json({ msg: "Contraseña incorrecta"})
-                    }
-                }
-            }).catch(err => {
-                res.status(500).json(err);
-            })
+            } else {
 
+                // Unauthorized Access
+                res.status(401).json({ msg: "Contraseña incorrecta" })
+            }
 
-        },
+        }
+
+    }).catch(err => {
+        res.status(500).json(err);
+    })
+
+},
         
         //Registro
         signUp(req, res) {

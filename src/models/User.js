@@ -1,29 +1,18 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      User.hasMany(models.Post, {as: "posts", foreignKey: "userId"})
-    }
-  };
-  User.init({
+
+  const User = sequelize.define('User', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-          isAlpha: {
-            msg: "El nombre solo puede contener letras"
-          },
-          len: {
-            args:[2, 255],
-            msg: "El nombre tiene que ser minimamente de dos caracteres"
+        isAlpha: {
+          msg: "El nombre solo puede contener letras"
+        },
+        len: {
+          args: [2, 255],
+          msg: "El nombre tiene que ser minimamente de dos caracters"
         }
       }
     },
@@ -31,25 +20,30 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-        validate: {
+      validate: {
         isEmail: {
-          msg: "El mail tiene que ser un correo valido"
+          msg: "El email tiene que ser un correo valido"
         }
       }
-    },  
-    password: {
+    },
+    password:{
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: {
           args: [6, 255],
-          msg: "La contraseña tiene que tener minimamente 6 caracteres"          
+          msg: "La contraseña tiene que tener minimamente 6 caracteres"
         }
       }
     },
- }, {
-    sequelize,
-    modelName: 'User',
+  }, {
+    tableName: "users"
   });
+
+  User.associate = function(models) {
+    User.hasMany(models.Post, { as: "posts", foreignKey: "userId" });
+    User.belongsToMany(models.Role, { as: "roles", through: "user_role", foreignKey: "user_id" });
+  };
+
   return User;
 };

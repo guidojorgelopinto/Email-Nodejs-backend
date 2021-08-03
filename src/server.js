@@ -4,7 +4,7 @@ const port = 3000
 
 const { sequelize } = require('./models/index');
 
-//Middlewares
+// Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
