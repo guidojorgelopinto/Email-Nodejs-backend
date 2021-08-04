@@ -9,6 +9,7 @@ module.exports = {
 signIn(req, res) {
 
     let { email, password } = req.body;
+    console.log(email, password);
 
     // Buscar usuario
     User.findOne({
