@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const auth = require('../../config/auth');
+const authConfig = require('../../config/auth');
 const { User } = require('../models/index'); 
 
 module.exports = (req, res, next) => {
@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
         let token = req.headers.authorization.split(" ")[1];
 
         // Comprobar la validez de este token
-        jwt.verify(token, auth.secret, (err, decoded) => {
+        jwt.verify(token, authConfig.secret, (err, decoded) => {
 
             if(err) {
                 res.status(500).json({ msg: "Ha ocurrido un problema al decodificar el token", err });

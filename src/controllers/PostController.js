@@ -5,14 +5,13 @@ module.exports = {
     async find(req, res, next) {
         let post = await Post.findByPk(req.params.id);
 
-        if(!post) {
+        if (!post) {
             res.status(404).json({ msg: "El post no encontrado" });
         } else {
-            res.post = post;
+            req.post = post;
             next();
         }
     },
-    
 
     async index(req, res) {
         let posts = await Post.findAll();
@@ -27,19 +26,21 @@ module.exports = {
 
     // Update
     async update(req, res) {
-            req.post.title = req.body.title;
-            req.post.body = req.body.body;
 
-            req.post.save().then(post => {
-                res.json(post);
-            })
+        req.post.title = req.body.title;
+        req.post.body = req.body.body;
+
+        req.post.save().then(post => {
+            res.json(post);
+        })
+
     },
 
     // Delete
     async delete(req, res) {
+        req.post.destroy().then(post => {
+            res.json({ msg: "El post ha sido eliminado " });
+        })
+    },
 
-            req.post.destroy().then(post => {
-                res.json({ msg: "El post ha sido eliminado "});
-            })
-        },
-    }
+}

@@ -16,32 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `roles`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
+CREATE TABLE `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+  `role` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `createdAt` date NOT NULL,
+  `updatedAt` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `roles`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'lopinto','$2b$10$YT4ahboQYJnS3aom9qe5SO3bgt8Nn6Ir5yfvNoooVP8053hVyKBGS','lopinto@gmail.com','2021-08-03 22:38:34','2021-08-03 22:38:34'),(2,'guido','$2b$10$kevTg0nWG29rA59vKWNmWuWtLVFaxqj/RBuO33OUMmTOG0kHt/zBy','guido@gmail.com','2021-08-03 22:38:34','2021-08-03 22:38:34');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'admin','2021-08-03','2021-08-03'),(2,'user','2021-08-03','2021-08-03');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-04 18:59:28
+-- Dump completed on 2021-08-05 12:15:42

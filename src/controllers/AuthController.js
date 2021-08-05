@@ -1,7 +1,7 @@
 const { User } = require('../models/index');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const auth = require('../../config/auth');
+const authConfig = require('../../config/auth');
 
 module.exports = {
 
@@ -25,8 +25,8 @@ signIn(req, res) {
             if (bcrypt.compareSync(password, user.password)) {
 
                 // Creamos el token
-                let token = jwt.sign({ user: user }, auth.secret, {
-                    expiresIn: auth.expires
+                let token = jwt.sign({ user: user }, authConfig.secret, {
+                    expiresIn: authConfig.expires
                 });
 
                 res.json({
@@ -52,7 +52,7 @@ signIn(req, res) {
         signUp(req, res) {
 
         //encripto
-        let password = bcrypt.hashSync(req.body.password, Number.parseInt(auth.rounds));
+        let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
 
         //Crear un usuario
         User.create({
@@ -62,8 +62,8 @@ signIn(req, res) {
         }).then(user => {
 
             //cree token
-            let token = jwt.sign({ user: user }, auth.secret, {
-                expiresIn: auth.expires
+            let token = jwt.sign({ user: user }, authConfig.secret, {
+                expiresIn: authConfig.expires
             });
             res.json({
                 user: user,

@@ -16,33 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `posts`
+-- Table structure for table `migrations`
 --
 
-DROP TABLE IF EXISTS `posts`;
+DROP TABLE IF EXISTS `migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `posts` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `body` text,
-  `userId` int DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `userId` (`userId`),
-  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `migrations` (
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`name`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `posts`
+-- Dumping data for table `migrations`
 --
 
-LOCK TABLES `posts` WRITE;
-/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'Title 4','Body 4',1,'2021-08-03 22:38:34','2021-08-03 22:38:34'),(2,'Title 3','Body 3',1,'2021-08-03 22:38:34','2021-08-03 22:38:34'),(3,'Title 1','Body 1',2,'2021-08-03 22:38:34','2021-08-03 22:38:34'),(4,'Title 2','Body 2',2,'2021-08-03 22:38:34','2021-08-03 22:38:34');
-/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES ('20210730161618-create-user.js'),('20210802205959-create-post.js'),('20210803172749-create-user-role.js'),('20210803195814-create-role.js');
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-04 18:59:29
+-- Dump completed on 2021-08-05 12:15:42

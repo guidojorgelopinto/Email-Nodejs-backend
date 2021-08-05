@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `migrations`
+-- Table structure for table `seeds`
 --
 
-DROP TABLE IF EXISTS `migrations`;
+DROP TABLE IF EXISTS `seeds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `migrations` (
+CREATE TABLE `seeds` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`name`),
   UNIQUE KEY `name` (`name`)
@@ -30,13 +30,13 @@ CREATE TABLE `migrations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data for table `seeds`
 --
 
-LOCK TABLES `migrations` WRITE;
-/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES ('20210730161618-create-user.js'),('20210802205959-create-post.js'),('20210803172749-create-user-role.js'),('20210803195814-create-role.js');
-/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+LOCK TABLES `seeds` WRITE;
+/*!40000 ALTER TABLE `seeds` DISABLE KEYS */;
+INSERT INTO `seeds` VALUES ('20210802211423-create-somo-posts-and-users.js'),('20210803175914-create.js');
+/*!40000 ALTER TABLE `seeds` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-04 18:59:28
+-- Dump completed on 2021-08-05 12:15:43
