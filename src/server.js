@@ -4,7 +4,7 @@ const port = 3000
 
 const cors = require('cors')
 
-app.use(cors()) //
+app.use(cors())
 
 const { sequelize } = require('./models/index');
 
@@ -19,6 +19,6 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 
   sequelize.authenticate().then(() => {
-    console.log('Nos hemos conectado a la base de datos!!');
+    console.log('Estoy conectado!!');
   })
 });

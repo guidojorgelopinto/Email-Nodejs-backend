@@ -4,6 +4,19 @@
 module.exports = (sequelize, DataTypes) => {
 
   const User = sequelize.define('User', {
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: {
+          msg: "El apellido solo puede contener letras"
+        },
+        len: {
+          args: [2, 255],
+          msg: "El apellido tiene que ser minimamente de dos caracters"
+        }
+      }
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,6 +27,19 @@ module.exports = (sequelize, DataTypes) => {
         len: {
           args: [2, 255],
           msg: "El nombre tiene que ser minimamente de dos caracters"
+        }
+      }
+    },
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: {
+          msg: "El nombre de usuario solo puede contener letras"
+        },
+        len: {
+          args: [2, 255],
+          msg: "El nombre de usuario tiene que ser minimamente de dos caracters"
         }
       }
     },
@@ -34,6 +60,42 @@ module.exports = (sequelize, DataTypes) => {
         len: {
           args: [6, 255],
           msg: "La contraseña tiene que tener minimamente 6 caracteres"
+        }
+      }
+    },
+    birthday:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: {
+          args: [6, 255],
+          msg: "debe tener minimamente 8 caracteres"
+        }
+      }
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: {
+          msg: "El city solo puede contener letras"
+        },
+        len: {
+          args: [2, 255],
+          msg: "El city tiene que ser minimamente de dos caracters"
+        }
+      }
+    },
+    coutry: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        isAlpha: {
+          msg: "El country solo puede contener letras"
+        },
+        len: {
+          args: [2, 255],
+          msg: "El country tiene que ser minimamente de dos caracters"
         }
       }
     },

@@ -55,9 +55,15 @@ module.exports = {
 
         // Crear un usuario
         User.create({
+            lastName: req.body.lastName,
             name: req.body.name,
+            userName: req.body.userName,
             email: req.body.email,
-            password: password
+            password: password,
+            birthday: req.body.birthday,
+            city: req.body.city,
+            country: req.body.country,
+
         }).then(user => {
 
             // Creamos el token
