@@ -38,7 +38,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      coutry: {
+      country: {
         type: Sequelize.STRING,
         allowNull: false,
       },

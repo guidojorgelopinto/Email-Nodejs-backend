@@ -75,7 +75,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isAlpha: {
           msg: "El city solo puede contener letras"
@@ -86,7 +86,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    coutry: {
+    country: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {

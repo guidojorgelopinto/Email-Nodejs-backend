@@ -10,9 +10,14 @@ module.exports = {
     return Promise.all([
       
       User.create({
-        name: "guido",
+        lastName: "lopinto",
+        name:  "guido",
+        userName: "guidolopinto",
         email: "guido@gmail.com",
         password: bcrypt.hashSync("123456", +authConfig.rounds),
+        birthday: "15-01-1989",
+        city: "Cordoba",
+        country: "Cordoba",
         posts: [
           {
             title: "Title 1",
@@ -28,9 +33,14 @@ module.exports = {
       }),
 
       User.create({
-        name: "lopinto",
+        lastName: "lopinto",
+        name:  "lopinto",
+        userName: "lopinto",
         email: "lopinto@gmail.com",
         password: bcrypt.hashSync("123456", +authConfig.rounds),
+        birthday: "15-01-1989",
+        city: "Cordoba",
+        country: "Argentina",
         posts: [
           {
             title: "Title 3",

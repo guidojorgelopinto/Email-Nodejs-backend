@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
-    // Esta migracion o seed d problemillas
+    // Esta migracion o seed
     return Promise.all([
 
       queryInterface.bulkInsert('roles', [
