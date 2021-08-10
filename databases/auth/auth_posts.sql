@@ -24,16 +24,18 @@ DROP TABLE IF EXISTS `posts`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `posts` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `body` text CHARACTER SET utf8,
+  `title` varchar(255) DEFAULT NULL,
+  `body` text,
   `userId` int DEFAULT NULL,
   `to` int DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`),
-  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+  KEY `to` (`to`),
+  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`to`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +44,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'Title 4','Body 4',1,2,'2021-08-03 22:38:34','2021-08-03 22:38:34'),(2,'Title 3','Body 3',1,2,'2021-08-03 22:38:34','2021-08-03 22:38:34'),(3,'Title 1','Body 1',2,1,'2021-08-03 22:38:34','2021-08-03 22:38:34'),(4,'Title 2','Body 2',2,1,'2021-08-03 22:38:34','2021-08-03 22:38:34');
+INSERT INTO `posts` VALUES (1,'Title 2','Body 2',1,2,'2021-08-09 17:25:39','2021-08-09 17:25:39'),(2,'Title 1','Body 1',1,2,'2021-08-09 17:25:39','2021-08-09 17:25:39'),(3,'Title 3','Body 3',2,1,'2021-08-09 17:25:39','2021-08-09 17:25:39'),(4,'Title 4','Body 4',2,1,'2021-08-09 17:25:39','2021-08-09 17:25:39');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-05 12:15:43
+-- Dump completed on 2021-08-10 18:55:52
