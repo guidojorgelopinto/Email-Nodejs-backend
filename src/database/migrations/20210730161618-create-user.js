@@ -30,7 +30,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      birthday: {
+      password2: {
         type: Sequelize.STRING,
         allowNull: false,
       },

@@ -29,7 +29,7 @@ CREATE TABLE `users` (
   `userName` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `birthday` varchar(255) NOT NULL,
+  `password2` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   `createdAt` datetime NOT NULL,

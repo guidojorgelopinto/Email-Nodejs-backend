@@ -60,7 +60,7 @@ module.exports = {
             userName: req.body.userName,
             email: req.body.email,
             password: password,
-            birthday: req.body.birthday,
+            password2: req.body.password2,
             city: req.body.city,
             country: req.body.country,
 

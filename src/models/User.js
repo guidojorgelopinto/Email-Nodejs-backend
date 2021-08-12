@@ -1,4 +1,3 @@
-  
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
@@ -8,9 +7,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: {
-          msg: "El apellido solo puede contener letras"
-        },
+        // isAlpha: {
+        //   msg: "El apellido solo puede contener letras"
+        // },
         len: {
           args: [2, 255],
           msg: "El apellido tiene que ser minimamente de dos caracters"
@@ -21,9 +20,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: {
-          msg: "El nombre solo puede contener letras"
-        },
+        // isAlpha: {
+        //   msg: "El nombre solo puede contener letras"
+        // },
         len: {
           args: [2, 255],
           msg: "El nombre tiene que ser minimamente de dos caracters"
@@ -34,9 +33,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: {
-          msg: "El nombre de usuario solo puede contener letras"
-        },
+        // isAlpha: {
+        //   msg: "El nombre de usuario solo puede contener letras"
+        // },
         len: {
           args: [2, 255],
           msg: "El nombre de usuario tiene que ser minimamente de dos caracters"
@@ -63,7 +62,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    birthday:{
+    password2:{
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -77,9 +76,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
-        isAlpha: {
-          msg: "El city solo puede contener letras"
-        },
+        // isAlpha: {
+        //   msg: "El city solo puede contener letras"
+        // },
         len: {
           args: [2, 255],
           msg: "El city tiene que ser minimamente de dos caracters"
@@ -90,9 +89,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
-        isAlpha: {
-          msg: "El country solo puede contener letras"
-        },
+        // isAlpha: {
+        //   msg: "El country solo puede contener letras"
+        // },
         len: {
           args: [2, 255],
           msg: "El country tiene que ser minimamente de dos caracters"

@@ -19,8 +19,10 @@ router.post('/api/signin', AuthController.signIn);
 router.post('/api/signup', AuthController.signUp);
 
 // Rutas posts: token valido - buscamos post - validacion de usuario
-router.get('/api/posts', PostController.index); //(le falta el auth//)
-router.get('/api/posts/:id', PostController.find, PostPolicy.show, PostController.show); //(le falta el auth//)
+router.get('/api/posts', auth, PostController.index);
+router.post('/api/posts', auth, PostPolicy.show, PostController.index);
+router.post('/api/posts/:id', auth, PostPolicy.show, PostController.index);
+router.get('/api/posts/:id', auth, PostController.find, PostPolicy.show, PostController.show);
 router.patch('/api/posts/:id', auth, PostController.find, PostPolicy.update, PostController.update);
 router.delete('/api/posts/:id', auth, PostController.find, PostPolicy.delete, PostController.delete);
 

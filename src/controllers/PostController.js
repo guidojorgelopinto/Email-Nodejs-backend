@@ -24,6 +24,19 @@ module.exports = {
         res.json(req.post);
     },
 
+        // Create
+        async create(req, res) {
+            req.post.to = req.body.to;
+            req.post.userId = req.body.userId;
+            req.post.title = req.body.title;
+            req.post.body = req.body.body;
+    
+            req.post.save().then(post => {
+                res.json(post);
+            })
+    
+        },
+
     // Update
     async update(req, res) {
 

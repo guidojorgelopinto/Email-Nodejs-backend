@@ -15,9 +15,9 @@ module.exports = {
         userName: "guidolopinto",
         email: "guido@gmail.com",
         password: bcrypt.hashSync("123456", +authConfig.rounds),
-        birthday: "15-01-1989",
+        password2: bcrypt.hashSync("123456", +authConfig.rounds),
         city: "Cordoba",
-        country: "Cordoba",
+        country: "Argentina",
         posts: [
           {
             title: "Title 1",
@@ -38,9 +38,9 @@ module.exports = {
         userName: "lopinto",
         email: "lopinto@gmail.com",
         password: bcrypt.hashSync("123456", +authConfig.rounds),
-        birthday: "15-01-1989",
-        city: "Cordoba",
-        country: "Argentina",
+        password2: bcrypt.hashSync("123456", +authConfig.rounds),
+        city: "Montevideo",
+        country: "Uruguay",
         posts: [
           {
             title: "Title 3",
