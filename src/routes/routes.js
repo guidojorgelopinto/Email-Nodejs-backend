@@ -18,8 +18,9 @@ router.get('/', (req, res) => res.json({ hello: "World" }));
 router.post('/api/signin', AuthController.signIn);
 router.post('/api/signup', AuthController.signUp);
 
-// Rutas posts: token valido - buscamos post - validacion de usuario
-router.get('/api/posts', PostController.index);
+// Rutas posts: token valido - busco post - validacion de usuario - sesion
+
+router.get('/api/posts', auth, PostController.findDest, PostPolicy.show, PostController.show);
 router.post('/api/posts', PostPolicy.show, PostController.index);
 router.post('/api/posts/:id', PostPolicy.show, PostController.index);
 router.get('/api/posts/:id', auth, PostController.find, PostPolicy.show, PostController.show);

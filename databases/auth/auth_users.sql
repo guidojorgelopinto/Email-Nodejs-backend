@@ -45,7 +45,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'lopinto','guido','guidolopinto','guido@gmail.com','$2b$10$gMTps/ksZMy6lgBxe6A0v.2gUDAIUma0nU0.UpCU7yhQgDNBJIbVC','15-01-1989','Cordoba','Cordoba','2021-08-09 17:25:39','2021-08-09 17:25:39'),(2,'lopinto','lopinto','lopinto','lopinto@gmail.com','$2b$10$9RAknUWydwdArVRDuBCQYeMnTH9xGT57lh8PsUiNi/9A1zeLxDREK','15-01-1989','Cordoba','Argentina','2021-08-09 17:25:39','2021-08-09 17:25:39');
+INSERT INTO `users` VALUES (1,'lopinto','lopinto','lopinto','lopinto@gmail.com','$2b$10$hWurA3Wg1WDMlDV1f1I06OCJcE.8I9W8vfLhkRdODKdkis5xA.0xi','$2b$10$cWCLOEemjNJXKAId2PSzau06Lijm7x.JVxS434ul.laNz66jQnHiq','Montevideo','Uruguay','2021-08-12 15:31:20','2021-08-12 15:31:20'),(2,'lopinto','guido','guidolopinto','guido@gmail.com','$2b$10$0BtoAikZeUqlTtPntvYJ4e/Mpp7t5rKFbd41yqplZnrXT3Vs.AyuO','$2b$10$lybsayZq6SLoM7oIpNbJduat4Pb.Zbdc7ZlmRdu53fDsmvbqswk2q','Cordoba','Argentina','2021-08-12 15:31:20','2021-08-12 15:31:20');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-10 18:55:52
+-- Dump completed on 2021-08-12 21:32:14

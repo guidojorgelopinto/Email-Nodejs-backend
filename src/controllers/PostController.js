@@ -1,4 +1,4 @@
-const { Post } = require('../models/index');
+const { Post } = require('../models/Post');
 
 module.exports = {
 
@@ -6,6 +6,30 @@ module.exports = {
         let post = await Post.findByPk(req.params.id);
 
         if (!post) {
+            res.status(404).json({ msg: "El post no encontrado" });
+        } else {
+            req.post = post;
+            next();
+        }
+    },
+
+    async findDest(req, res, next) {
+
+        //  Model.post.findAll({
+        //     where: {
+        //         attr1: 42,
+        //         attr2: 'cake'
+        //     }
+        //     });
+            
+
+        let post = await Post.findAll({
+            where: {
+                to: req.user.id
+            }
+        });
+    
+        if (post.length === 0) { 
             res.status(404).json({ msg: "El post no encontrado" });
         } else {
             req.post = post;

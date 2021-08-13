@@ -33,7 +33,7 @@ CREATE TABLE `user_role` (
   KEY `role_id` (`role_id`),
   CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `user_role` (
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
-INSERT INTO `user_role` VALUES (1,1,1,'2021-08-09 17:25:39','2021-08-09 17:25:39'),(2,1,2,'2021-08-09 17:25:39','2021-08-09 17:25:39'),(3,2,2,'2021-08-09 17:25:39','2021-08-09 17:25:39');
+INSERT INTO `user_role` VALUES (4,1,1,'2021-08-12 15:33:33','2021-08-12 15:33:33'),(5,1,2,'2021-08-12 15:33:33','2021-08-12 15:33:33'),(6,2,2,'2021-08-12 15:33:33','2021-08-12 15:33:33');
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-10 18:55:52
+-- Dump completed on 2021-08-12 21:32:14

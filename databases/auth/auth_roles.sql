@@ -28,7 +28,7 @@ CREATE TABLE `roles` (
   `createdAt` date NOT NULL,
   `updatedAt` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'admin','2021-08-09','2021-08-09'),(2,'user','2021-08-09','2021-08-09'),(3,'admin','2021-08-09','2021-08-09'),(4,'user','2021-08-09','2021-08-09');
+INSERT INTO `roles` VALUES (1,'admin','2021-08-12','2021-08-12'),(2,'user','2021-08-12','2021-08-12');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-10 18:55:52
+-- Dump completed on 2021-08-12 21:32:14
