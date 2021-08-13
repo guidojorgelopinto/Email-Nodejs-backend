@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
                 
                 User.findByPk(decoded.user.id, { include: "roles" }).then(user => {
 
-                    console.log(user.roles);
+                    // console.log(user.roles);
 
                     req.user = user;
                     

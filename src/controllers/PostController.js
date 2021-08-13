@@ -37,6 +37,22 @@ module.exports = {
         }
     },
 
+    async findRemit(req, res, next) {            
+
+        let post = await Post.findAll({
+            where: {
+                userId: req.user.id
+            }
+        });
+    
+        if (post.length === 0) { 
+            res.status(404).json({ msg: "El post no encontrado" });
+        } else {
+            req.post = post;
+            next();
+        }
+    },
+
     async index(req, res) {
         let posts = await Post.findAll();
 
