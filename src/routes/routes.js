@@ -26,6 +26,6 @@ router.post('/api/posts', auth, AuthController.findMail, PostController.create);
 router.post('/api/posts/:id', PostPolicy.show, PostController.index);
 router.get('/api/posts/:id', auth, PostController.find, PostPolicy.show, PostController.show);
 router.patch('/api/posts/:id', auth, PostController.find, PostPolicy.update, PostController.update);
-router.delete('/api/posts/:id', auth, PostController.find, PostPolicy.delete, PostController.delete);
+router.delete('/api/posts/:id', auth, PostController.find, PostController.delete);
 
 module.exports = router;

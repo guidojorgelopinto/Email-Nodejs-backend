@@ -90,9 +90,14 @@ module.exports = {
 
     // Delete
     async delete(req, res) {
-        req.post.destroy().then(post => {
-            res.json({ msg: "El post ha sido eliminado " });
-        })
-    },
+
+        let post = await Post.findByPk(req.params.id);
+
+        if (post) {
+            post.destroy().then(() => {
+                res.json({ msg: "El post ha sido eliminado " });
+            })
+        }
+   },
 
 }
