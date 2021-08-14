@@ -38,13 +38,11 @@ module.exports = {
                     // Unauthorized Access
                     res.status(401).json({ msg: "Contraseña incorrecta" })
                 }
-
             }
 
         }).catch(err => {
             res.status(500).json(err);
         })
-
     },
 
     // Registro
@@ -80,6 +78,26 @@ module.exports = {
             res.status(500).json(err);
         });
 
-    }
+    },
 
+    async findMail(req, res, next) {
+
+        let { to } = req.body;
+
+        // Buscar usuario
+        let usuario = await User.findOne({
+            where: {
+                email: to
+            }
+        });
+
+        if (!usuario || usuario.length === 0) { 
+            // res.status(404).json({ msg: "Usuario no encontrado" });
+            res.json({mensaje: 'ERROR'});
+        } else {
+            req.body.to = usuario.id;
+            req.body.userId = req.user.id;
+            next();
+        }
+    },
 }

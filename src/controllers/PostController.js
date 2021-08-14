@@ -44,7 +44,7 @@ module.exports = {
                 userId: req.user.id
             }
         });
-    
+
         if (post.length === 0) { 
             res.status(404).json({ msg: "El post no encontrado" });
         } else {
@@ -64,18 +64,17 @@ module.exports = {
         res.json(req.post);
     },
 
-        // Create
-        async create(req, res) {
-            req.post.to = req.body.to;
-            req.post.userId = req.body.userId;
-            req.post.title = req.body.title;
-            req.post.body = req.body.body;
-    
-            req.post.save().then(post => {
-                res.json(post);
-            })
-    
-        },
+    async create(req, res) {
+
+        Post.create({
+            to: req.body.to,
+            title: req.body.title,
+            body: req.body.body,
+            userId: req.body.userId
+        })
+        .then(res.json({mensaje: 'OK'}))
+        .catch(res.json({mensaje: 'ERROR'}));
+    },
 
     // Update
     async update(req, res) {

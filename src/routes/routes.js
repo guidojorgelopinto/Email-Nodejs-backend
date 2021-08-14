@@ -21,8 +21,8 @@ router.post('/api/signup', AuthController.signUp);
 // Rutas posts: token valido - busco post - validacion de usuario - sesion
 
 router.get('/api/posts', auth, PostController.findDest, PostController.show);
-router.get('/api/posts', auth, PostController.findRemit, PostController.show);
-router.post('/api/posts', PostPolicy.show, PostController.index);
+router.get('/api/posts-remit', auth, PostController.findRemit, PostController.show);
+router.post('/api/posts', auth, AuthController.findMail, PostController.create);
 router.post('/api/posts/:id', PostPolicy.show, PostController.index);
 router.get('/api/posts/:id', auth, PostController.find, PostPolicy.show, PostController.show);
 router.patch('/api/posts/:id', auth, PostController.find, PostPolicy.update, PostController.update);
